@@ -18,12 +18,19 @@
                                 console.log(res.data)
                                 return res.data
                             })
+                        }, 
+                        allDefinitions : function(DataService){
+                            return DataService.getAllDefinitions()
+                            .then(res => {
+                                console.log(res.data)
+                                return res.data
+                            })
                         }
                     }
                 })
         })
 
-        .controller('HomeCtrl', function ($scope, $localStorage, $state, DataService, allPatients) {
+        .controller('HomeCtrl', function ($scope, $localStorage, $state, DataService, allPatients, allDefinitions) {
 
             let vm = this;
 
@@ -32,7 +39,9 @@
             init();
 
             function init(){
-                vm.patients = allPatients;
+                vm.patients     = allPatients;
+                vm.definitions  = allDefinitions;
+                console.log(allDefinitions)
             }
             
 

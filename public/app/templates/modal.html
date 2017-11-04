@@ -1,84 +1,62 @@
 <div class="modal-header">
     <h3 class="modal-title" id="modal-title">
-        {{vm.title}}
+        {{vm.patient.name}}
         <img src="assets/icons/close.svg" style="height: 15px; margin-top: 10px" class="pull-right pointer"
              ng-click="modal.dismiss()"
              alt="">
     </h3>
 </div>
 <div class="modal-body" id="modal-body">
-    <form style="margin: 25px 0; width: 620px" ng-show="vm.formStep === 1" ng-submit="vm.addUser()">
-        <div class="row">
-            <div class="col-xs-6 no-pad-left" style="padding-right: 25px">
-                <div class="form-group">
-                    <label class="control-label">First Name *</label>
-                    <input type="text" tabindex="1" class="form-control" placeholder="" required
-                           ng-model="vm.userModel.fName">
-                </div>
-                <div class="form-group">
-                    <label class="control-label">Email Address (will be used as user name) *</label>
-                    <input type="email" tabindex="2" class="form-control" ng-disabled="vm.editing" required
-                           ng-model="vm.userModel.userId">
-                    <div class="text-danger" ng-show="vm.errorID">User already exists</div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label">Position *</label>
-                    <input type="text" tabindex="4" class="form-control" placeholder="" required
-                           ng-model="vm.userModel.position">
-                </div>
-                <!-- <div class="form-group">
-                     <label class="control-label">Add Additional Cover Access</label>
-                     <input type="text" tabindex="6" placeholder="Search by name or cover number..."
-                            ng-model="vm.coverChosen" ng-disabled="vm.allCovers.length == 0"
-                            uib-typeahead="cover as cover.orgName for cover in vm.allCovers | filter:$viewValue | limitTo:8"
-                            typeahead-on-select="vm.addSelectedCover($item, $model, $label)"
-                            typeahead-min-length="0"
-                            class="input-search form-control">
-                 </div>-->
-            </div>
-            <div class="col-xs-6 no-pad-right" style="padding-left: 25px">
-                <div class="form-group">
-                    <label class="control-label">Last Name *</label>
-                    <input type="text" tabindex="1" class="form-control" placeholder="" required
-                           ng-model="vm.userModel.lName">
-                </div>
-                <div class="form-group">
-                    <label class="control-label">Password <span ng-hide="vm.editing">*</span></label>
-                    <input type="password" tabindex="3" class="form-control" placeholder="" ng-required="!vm.editing"
-                           ng-model="vm.userModel.password">
-                </div>
-                <div class="form-group" uib-dropdown auto-close="outsideClick">
-                    <label class="control-label">Applications</label>
-                    <button class="btn btn-default btn-block" tabindex="5" uib-dropdown-toggle style="text-align: left">
-                        Select Application(s)
-                        <i class="fa fa-angle-down pull-right fa-lg" style="margin-top: 4px" aria-hidden="true"></i>
-                    </button>
-                    <ul class="dropdown-menu" uib-dropdown-menu>
-                        <!--<li>
-                            <a><input id="check_12" type="checkbox" class="css-checkbox"
-                                      ng-model="vm.checkAll" ng-change="vm.selectAll()">
-                                <label for="check_12" class="css-label">Select All</label></a>
-                        </li>-->
-                        <li ng-repeat="app in vm.myApps">
-                            <span><input id="{{'check' + $index}}" type="checkbox" class="css-checkbox"
-                                         ng-model="app.active">
-                                <label for="{{'check' + $index}}" class="css-label">{{app.name}}</label></span>
-                        </li>
-                    </ul>
-                    <div class="text-danger" ng-show="vm.errorApps">At least 1 required</div>
+    
+    <div class="row">
+        <div class="col-md-4">
+            <ul>
+                <li>
+                    Weight (kg) : {{vm.patient.weightKg}}
+                </li>
+                <li>
+                    Height (cm) : {{vm.patient.heightCm}}
+                </li>
+                <li>
+                    BMI : {{vm.patient.bmi}}
+                </li>
+
+            </ul>
+
+            <div class="analysis">
+                <label>Patient Summary Activity</label>
+                <div ng-repeat="summary in vm.patient.summary">
+                    {{summary.activity}} : {{summary.minutes}} mins 
                 </div>
             </div>
+            
+            <div class="analysis">
+                <label>Analysis</label>
+                <div>
+                    Total Moderate Activity Total : {{vm.moderateTotal}} minutes
+                </div>
+                <div>
+                    Total Vigorous Activity Total : {{vm.vigorousTotal}} minutes
+                </div>
+                <div>
+                    Total Mixed Activity Total : {{vm.moderateTotal}} minutes of moderate activity and {{vm.vigorousTotal}} minutes of vigorous activity
+                </div>
+            </div>
+            
+            <div class="analysis">
+                <label>Result</label>
+                <div>
+                    {{vm.resultText}}
+                </div>
+            </div>
+            
         </div>
-        <!--Control Buttons-->
-        <div>
-            <span class="btn btn-gray" ng-click="modal.dismiss()">Cancel</span>
-            <button type="submit" ng-disabled="vm.loading1" class="btn btn-amber" style="margin-left: 14px">
-                <span ng-hide="vm.loading1">{{ vm.editing ? 'Save' : 'Next' }}</span>
-                <span ng-show="vm.loading1"><i class="fa fa-circle-o-notch fa-spin fa-lg fa-fw"></i></span>
-            </button>
+        <div class="col-md-8">
+             <canvas id="doughnut" class="chart chart-doughnut" chart-data="vm.data" chart-labels="vm.labels" chart-options="vm.chartOptions" chart-dataset-override="vm.dataset">
+            </canvas> 
         </div>
-    </form>
+    </div>
 
-
+   
     
 </div>

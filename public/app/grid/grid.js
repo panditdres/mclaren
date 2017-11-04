@@ -29,14 +29,14 @@
             // Function declaration
             vm.pagePatients = pagePatients;
             vm.viewPatient  = viewPatient;
-
+            // vm.uploadPatients = uploadPatients;
 
             vm.gridColumns = [
                 {display: 'Name', search: 'name', sort: 'name', rotate: 'name'},
                 {display: 'BMI', search: 'bmi', sort: 'bmi', rotate: 'bmi'},
                 {display: 'Height (cm)', search: 'heightCm', sort: 'heightCm', rotate: 'heightCm'},
                 {display: 'Weight (kg)', search: 'weightKg', sort: 'weightKg', rotate: 'weightKg'},
-                {display: 'Meets recommended level', search: 'meetsBool', sort: 'meetsBool'},
+                {display: 'Category', search: 'resultText', sort: 'resultText', rotate: 'resultText'},
                 {display: 'Created', search: 'Created', sort: 'Created', rotate: 'Created'}
             ];
 
@@ -46,8 +46,34 @@
 
 
             function init(){
-                vm.patients = DataService.patients();
-                console.log(vm.patients,'patient on grid')
+                vm.patients     = DataService.patients();
+                vm.definitions  = DataService.definitions();
+
+                let vigorousAct = vm.definitions.filter(el => { return el.intensity === 'vigorous' }).map(x => { return x.activity });
+                let moderateAct = vm.definitions.filter(el => { return el.intensity === 'moderate' }).map(x => { return x.activity });
+
+                vm.patients.forEach(patient => {
+                    patient.moderateTotal = patient.summary.filter(el => {
+                        console.log(el)
+                        return moderateAct.includes(el.activity.toLowerCase())
+                    }).map(x => { return x.minutes }).reduce((a,b) => a+b, 0);
+
+                    patient.vigorousTotal  = patient.summary.filter(el => {
+                        console.log(el)
+                        return vigorousAct.includes(el.activity.toLowerCase())
+                    }).map(x => { return x.minutes }).reduce((a,b) => a+b, 0);
+
+                    if(patient.moderateTotal >= 150 && patient.vigorousTotal === 0){
+                        patient.resultText = '150 minutes of moderate activity';
+                    } else if (patient.vigorousTotal >= 75 && patient.moderateTotal === 0){
+                        patient.resultText = '75 minutes of vigorous activity';
+                    } else if (patient.vigorousTotal != 0 && patient.moderateTotal != 0){
+                        patient.resultText = 'Mix of moderate and vigorous activity';
+                    } else {
+                        patient.resultText = 'Lacks activity';
+                    }
+                })
+
             }
 
             function pagePatients() { // <-- filter users for a page
@@ -83,15 +109,17 @@
 
             function viewPatient(patient){
                 console.log('view patient',patient)
-                const userModel = {
-                    patientId: patient,
+                const obj = {
+                    patient     : patient,
+                    definitions : vm.definitions
                 };
                 const options = {
                     templateUrl: "app/templates/modal.html", size: "lg", controller: "ModalCtrl as vm",
-                    // scope: $scope,
+                    scope: $scope,
+                    resolve: { obj }
                 };
                 $uibModal.open(options).result.then(resp => {
-                    
+                    console.log('closed modal result returned')
                 }, () => {
                     console.log('Modal dismissed')
                 })

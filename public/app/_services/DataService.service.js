@@ -7,12 +7,14 @@
     function dataFetch($http, $q, $localStorage, ngToast) {
         const apiUrl = '/api/v1/';
 
-        let patients = [];
+        let patients    = [];
+        let definitions = [];
 
         return {
            getAllPatients,
            getAllDefinitions,
-           patients : () => patients
+           patients : () => patients,
+           definitions : () => definitions
         };
 
         /****________********_______********________****/
@@ -33,7 +35,7 @@
             // data.sessionId = $localStorage.token;
             return $http.get(apiUrl + 'allDefinitions')
             .then(resp => {
-                // console.log(resp.data)
+                definitions = resp.data.data;
                 return resp.data
             })
             .catch(err => {

@@ -179,6 +179,14 @@ label {
   color: #697A7A;
 }
 
+.analysis{
+  margin-bottom: 10px;
+}
+
+.select{
+  cursor: pointer;
+}
+
 .modal-content {
   border-radius: 4px;
   padding: 30px 40px;
@@ -188,6 +196,7 @@ label {
     color: #090909;
   }
   .modal-body {
+    // width: 85%;
     padding: 15px 0;
     color: #697A7A;
     .form-group {
@@ -200,7 +209,7 @@ label {
 }
 
 .modal-lg {
-  width: fit-content;
+  width: 85%;
 }
 
 .border-btm {
