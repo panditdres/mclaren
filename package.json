@@ -1,0 +1,50 @@
+{
+  "name": "mclaren-interview-exercise",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "angular-chart.js": "^1.1.1",
+    "bluebird": "^3.5.0",
+    "body-parser": "^1.15.2",
+    "browser-sync": "^2.18.7",
+    "connect-mongo": "^2.0.0",
+    "cors": "^2.8.1",
+    "cron": "^1.2.1",
+    "dotenv": "^2.0.0",
+    "express": "^4.14.0",
+    "express-session": "^1.14.2",
+    "fs-extra": "^1.0.0",
+    "method-override": "^2.3.7",
+    "moment": "^2.17.1",
+    "mongoose": "^4.12.6",
+    "morgan": "^1.7.0",
+    "node-excel-export": "^1.4.2",
+    "pdfmake": "^0.1.33",
+    "pump": "^1.0.2",
+    "request": "^2.79.0",
+    "soap": "^0.18.0",
+    "system": "^2.0.1",
+    "winston": "^2.4.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-cssmin": "^0.2.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-ng-annotate": "^2.0.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^2.1.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "gulp dev & node index.js",
+    "build": "gulp",
+    "start": "npm run build && node index.js"
+  },
+  "author": "Pandit Adhilaga-Dres",
+  "license": "ISC"
+}

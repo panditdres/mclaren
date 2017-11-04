@@ -1,0 +1,314 @@
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url(/mclaren/assets/HelveticaNeue.ttf) format('opentype');
+}
+
+body {
+  font-family: "Helvetica Neue", "SansSerif";
+}
+
+input {
+  outline: none;
+}
+
+.row {
+  margin: inherit;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.no-pad-left {
+  padding-left: 0;
+}
+
+.no-pad-right {
+  padding-right: 0;
+}
+
+.rotated {
+  transform: rotate(180deg);
+}
+
+.btn {
+  .fa {
+    margin-right: 7px;
+  }
+}
+
+.btn:hover {
+  color: inherit;
+}
+
+.btn-config {
+  border-radius: 4px;
+  color: #B69363;
+  width: 200px;
+  height: 40px;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: HelveticaNeue;
+  position: relative;
+  background: #FFF2E2;
+  padding-top: 10px;
+  letter-spacing: 1px;
+  img {
+    height: 24px;
+    margin-right: 3px;
+    margin-top: -3px;
+  }
+}
+
+.btn-amber {
+  background: #FFBA59;
+  border-radius: 4px;
+  font-size: 13px;
+  color: #FFFFFF !important;
+  letter-spacing: 1px;
+  width: 160px;
+  padding-top: 10px;
+  //padding-left: 4px;
+  height: 40px;
+  font-family: HelveticaNeue;
+  img {
+    margin-right: 7px;
+    vertical-align: top;
+    height: 15px;
+  }
+}
+
+.btn-gray {
+  background: #FAFAFA;
+  border-radius: 4px;
+  color: #090909;
+  width: 160px;
+  height: 40px;
+  font-size: 13px;
+  padding: 10px 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.btn-green { // Green button
+  border-radius: 4px;
+  width: 160px;
+  height: 40px;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: HelveticaNeue;
+  position: relative;
+  color: #87B7B6;
+  background-color: #E3EFEE;
+  padding-top: 10px;
+}
+
+.input-search {
+  font-size: 14px;
+  //width: 330px;
+  //height: 40px;
+  background: url(/4pc-user-management/assets/icons/icon-search.svg) 12px 8px no-repeat #fff;
+  background-size: 18px 17px;
+  text-indent: 30px;
+}
+
+.dropdown-menu {
+  padding: 0;
+  min-width: 240px;
+  box-shadow: 0 1px 4px 0 rgba(119, 119, 119, 0.20);
+  border-radius: 4px;
+  overflow: auto;
+  max-height: 170px;
+  li > a, li > span, .active > a {
+    padding: 8px 20px;
+    cursor: pointer;
+    color: #A5ABB1;
+    font-weight: 400;
+    display: block;
+    clear: both;
+    line-height: 1.42857143;
+    background-color: #fff;
+    white-space: nowrap;
+  }
+  li > a:hover, li > span:hover, .active > a:hover, .active > a:focus {
+    color: #87B7B6 !important;
+    background-color: #f5f5f5;
+  }
+}
+
+.dropdown-menu.dropdown-top {
+  top: -170px;
+}
+
+.dropdown-grid {
+  left: calc(100% - 258px);
+  top: 0;
+  li > a {
+    border-bottom: 1px solid rgba(9, 9, 9, 0.15);
+    img {
+      vertical-align: middle;
+      margin-right: 10px;
+    }
+  }
+}
+
+.manage-tabs {
+  margin-top: 15px;
+  padding-bottom: 5px;
+  //padding-left: 15px;
+  .btn {
+    background: none;
+    color: #999C99;
+    padding: 10px 0;
+    border: none;
+    letter-spacing: 1px;
+    border-radius: 0;
+    margin-right: 43px;
+    font-size: 18px;
+  }
+  .active {
+    color: #87B7B6;
+    box-shadow: none;
+    font-weight: 500;
+    border-bottom: 3px solid #87B7B6;
+  }
+}
+
+label {
+  //font-weight: 500;
+  color: #697A7A;
+}
+
+.modal-content {
+  border-radius: 4px;
+  padding: 30px 40px;
+  .modal-header {
+    padding: 0;
+    padding-bottom: 15px;
+    color: #090909;
+  }
+  .modal-body {
+    padding: 15px 0;
+    color: #697A7A;
+    .form-group {
+      margin-bottom: 25px;
+      .control-label {
+        margin-bottom: 13px;
+      }
+    }
+  }
+}
+
+.modal-lg {
+  width: fit-content;
+}
+
+.border-btm {
+  background: #F0F0F0;
+  width: 100%;
+  height: 2px;
+  margin-top: -7px;
+  //margin-left: 15px;
+  margin-bottom: 20px;
+}
+
+/********************************/
+
+.header-container {
+  height: 60px;
+  background-color: #1D2B58;
+  box-shadow: 0 2px 4px 0 rgba(69, 69, 69, 0.5);
+  position: relative;
+  z-index: 1;
+  .nav-colored {
+    background-color: transparent;
+    padding-top: 20px;
+    padding-left: 20px;
+    display: inline-block;
+  }
+  .menu-toggle {
+    margin-top: 20px;
+    margin-right: 25px;
+    cursor: pointer;
+  }
+  .header {
+    background-color: transparent;
+    padding: 20px 0px 15px;
+    ul li {
+      opacity: 0.6;
+    }
+    .active {
+      opacity: 1;
+    }
+  }
+}
+
+/*//////////*/
+.dash-practice-search {
+  background-color: #fafafa;
+  padding: 15px 40px 15px 0px;
+  input {
+    padding-top:10px;
+    font-family: HelveticaNeue-Medium;
+    background-color: #fafafa;
+    font-size: 16px;
+    color: rgba(9, 9, 9, 0.50);
+    letter-spacing: 0;
+    width: 80%;
+    margin-left: 10px;
+    border: none;
+  }
+}
+
+#search {
+  padding-left: 0px;
+}
+
+/* Checkboxes */
+input[type=checkbox].css-checkbox, input[type=radio].css-checkbox {
+  position: absolute;
+  z-index: -1000;
+  left: -1000px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+}
+
+input[type=checkbox].css-checkbox + label.css-label, input[type=radio].css-checkbox + label.css-label {
+  padding-left: 25px;
+  height: 17px;
+  display: inline-block;
+  line-height: 18px;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  font-size: 14px;
+  color: #090909;
+  font-weight: normal;
+  vertical-align: middle;
+  cursor: pointer;
+
+}
+
+input[type=checkbox].css-checkbox:checked + label.css-label, input[type=radio].css-checkbox:checked + label.css-label {
+  background-position: 0 -17px;
+}
+
+label.css-label {
+  background-image: url(/4pc-user-management/assets/checkbox.png);
+  background-size: 17px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+label.css-radio {
+  background-image: url(/4pc-user-management/assets/radio.png);
+  color: #697A7A !important;
+}

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="11px" height="6px" viewBox="0 0 11 6" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>arrow-down-sign-to-navigate</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Designs" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Manage-v4@2x" transform="translate(-245.000000, -142.000000)" fill-rule="nonzero" fill="#1D2B58">
+            <g id="arrow-down-sign-to-navigate" transform="translate(245.000000, 142.000000)">
+                <path d="M5.25402326,5.99316279 C5.06569767,5.99316279 4.87739535,5.92125581 4.73381395,5.77774419 L0.215581395,1.25946512 C-0.0718372093,0.972046512 -0.0718372093,0.506046512 0.215581395,0.218744186 C0.502883721,-0.0685581395 0.968790698,-0.0685581395 1.25623256,0.218744186 L5.25402326,4.21676744 L9.25183721,0.218883721 C9.53925581,-0.0684186047 10.0051163,-0.0684186047 10.2923953,0.218883721 C10.5799535,0.506186047 10.5799535,0.972186047 10.2923953,1.25960465 L5.77423256,5.77788372 C5.6305814,5.9214186 5.44227907,5.99316279 5.25402326,5.99316279 Z" id="Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>

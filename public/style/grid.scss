@@ -1,0 +1,246 @@
+.container-grid {
+  padding: 30px 35px;
+
+  .btn-config {
+    margin: 0 7px;
+  }
+
+  .apps-dropdown {
+    font-size: 24px;
+    color: #1D2B58;
+    letter-spacing: 0;
+  }
+  .bulk-dropdown {
+    background: #FFFFFF;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.20);
+    border-radius: 4px;
+    top: 27px;
+    left: -82px;
+    max-height: 210px;
+    li > a {
+      border-bottom: 1px solid rgba(9, 9, 9, 0.15);
+      padding: 10px 20px;
+      img, .fa {
+        margin-right: 10px;
+        //vertical-align: baseline;
+      }
+    }
+  }
+}
+
+#theGrid {
+  border: 1px solid rgba(9, 9, 9, 0.10);
+  border-radius: 4px;
+  width: 100%;
+  min-height: 530px;
+  padding: 0;
+  position: relative;
+
+  .config-row {
+    border-bottom: 1px solid rgba(9, 9, 9, 0.10);
+    padding: 20px 16px;
+  }
+
+  .table-filter {
+    border-radius: 100px;
+    color: #9BA1A8;
+    font-size: 14px;
+    width: 330px;
+    height: 40px;
+    border: none;
+    background: url(/4pc-user-management/assets/icons/icon-search.svg) 22px 13px no-repeat #F3F4F8;
+    background-size: 15px 15px;
+    text-indent: 50px;
+  }
+
+  .selected-number {
+    font-size: 14px;
+    color: #708685;
+    margin-right: 15px;
+  }
+
+  table {
+    width: 100%;
+    margin-bottom: 45px;
+    th {
+      border-bottom: 1px solid rgba(9, 9, 9, 0.10);
+      padding: 10px 15px 0;
+      .lbl {
+        font-family: HelveticaNeue-Medium;
+        font-size: 14px;
+        color: rgba(9, 9, 9, 0.70);
+        font-weight: 500;
+        display: inline-block;
+        max-width: 100%;
+        margin-bottom: 5px;
+      }
+      input {
+        border: 1px solid rgba(9, 9, 9, 0.15);
+        border-radius: 4px;
+        max-width: 283px;
+        height: 35px;
+      }
+    }
+    td {
+      padding: 10px 15px;
+      max-width: 270px;
+      .btn-dots {
+        width: 10%;
+        text-align: center;
+      }
+    }
+    .col-edit {
+      color: #2B59C3;
+      span {
+        margin: 0 10px;
+      }
+    }
+    .grid-edit {
+      border: 1px solid #DFE6E6;
+      border-radius: 4px;
+      background-color: inherit;
+      margin-left: -10px;
+      padding: 5px 9px;
+      max-width: calc(100% - 50px);
+    }
+  }
+
+  .paging {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid rgba(9, 9, 9, 0.15);
+    padding: 0 15px;
+    nav {
+      display: inline-block;
+    }
+    .pagination {
+      margin: 0;
+      li > a {
+        border: none;
+        font-size: 14px;
+        color: #090909;
+      }
+      .active > a {
+        background: none;
+        color: #87B7B6;
+        border-top: 2px solid #87B7B6;
+        margin-top: -2px;
+      }
+    }
+  }
+}
+
+#rolesTable {
+  td {
+    padding-left: 20px !important;
+  }
+}
+
+/* Multi Select Directive */
+.multi-select {
+  .select-col {
+    background: #F1F3F7;
+    border-radius: 4px;
+    height: 210px;
+    padding: 10px 16px;
+  }
+  .btns-col {
+    padding-top: 50px;
+  }
+  .btns-col > img {
+    display: block;
+    margin: 8px auto;
+    cursor: pointer;
+  }
+
+  input {
+    color: #090909;
+    font-size: 14px;
+    font-weight: 700;
+    width: calc(100% + 30px);
+    height: 40px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    background: url(/4pc-user-management/assets/icons/icon-search.svg) 0 14px no-repeat #F1F3F7;
+    background-size: 15px 15px;
+    text-indent: 40px;
+    margin-left: -15px;
+    background-position: 15px;
+  }
+
+  ul {
+    list-style: none;
+    margin-top: 15px;
+    padding: 0;
+    overflow: auto;
+    max-height: 90px;
+    li {
+      margin-bottom: 13px;
+      cursor: pointer;
+    }
+  }
+  .new-role {
+    .select-col {
+      height: 400px;
+    }
+    .btns-col {
+      padding-top: 140px;
+    }
+    ul {
+      max-height: 260px;
+    }
+  }
+  .labels {
+    color: #697A7A;
+    font-weight: 500;
+    position: relative;
+    height: 30px;
+    div {
+      position: absolute;
+    }
+  }
+}
+
+/* Scope Edit */
+.scope-edit {
+  margin-bottom: 30px;
+  h4 {
+    color: #2A3640;
+    font-size: 16px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(9, 9, 9, 0.10);
+    margin: 40px 0;
+  }
+  .row {
+    position: relative;
+  }
+  .labels {
+    color: #697A7A;
+    font-weight: 400;
+    position: relative;
+    height: 30px;
+    div {
+      position: absolute;
+    }
+  }
+  .select-col {
+    height: 300px;
+    width: 250px;
+    position: absolute;
+    //display: inline-block;
+  }
+  .btns-col {
+    //display: inline-block;
+    position: absolute;
+    width: 90px;
+    height: 300px;
+    img {
+      position: absolute;
+      left: 25px;
+    }
+  }
+  ul {
+    max-height: 200px;
+  }
+}

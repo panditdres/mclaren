@@ -1,0 +1,97 @@
+<section class="container-fluid dash-practice-search">
+    <div class="row">
+        <div id="search" class="col-md-8">
+            <img src="assets/icons/icon-search.svg" alt="">
+            <!-- Universal Search for the Table-->
+            <input type="text" placeholder="Search patient..." ng-model="vm.search.$"/>
+            <!--End-->
+        </div>
+        <div class="col-md-4">
+            <span class="pull-right">
+                <button class="btn btn-config" ng-click="vm.uploadPatients()">
+                    <img src="assets/icons/icon-pdf.png" alt="">
+                    Upload New Patients
+                </button>
+            </span>
+        </div>
+    </div>
+</section>
+
+
+<!-- The Grid Table -->
+<section class="container-fluid" id="theGrid">
+    <!--The Table!-->
+    <table class="table-striped">
+        <tr style="background-color: #fff !important;">
+            <th ng-repeat="col in vm.gridColumns">
+                <div class="form-group">
+                    <div class="lbl">
+                        <span>
+                            {{col.display}}
+                            <img ng-click="vm.sortReverse = !vm.sortReverse; vm.sortCol = col.sort"
+                                 src="assets/icons/icon-arrow-down-blue.svg" class="pointer" style="margin-left: 10px"
+                                 ng-class="{rotated: vm.sortReverse && vm.sortCol == col.rotate}"
+                                 alt="">
+                            <!--<img ng-if="vm.sortReverse && vm.sortCol == col.display;"-->
+                            <!--src="assets/icons/icon-chevron-up.svg" style="margin-left: 10px" alt="">-->
+                        </span>
+                    </div>
+                    <input type="text" class="form-control" ng-model="vm.search[col.search]">
+                </div>
+            </th>
+        </tr>
+        <!--<tr ng-repeat="user in vm.pageUsers() | orderBy: vm.sortCol:vm.sortReverse">-->
+        <tr ng-repeat="patient in vm.pagePatients()">
+            <!-- Name Editing from grid -->
+            <td ng-mouseenter="showEdit = true" ng-mouseleave="showEdit = false">
+                <span ng-show="editOn" ng-init="user.editName = user.Name">
+                    <input type="text" class="grid-edit" ng-model="user.editName">
+                    <img class="pointer" src="assets/icons/icon-checkmark.svg"
+                         ng-click="vm.updateUser(user); editOn = false" alt="" style="margin-left: 7px">
+                </span>
+                <span ng-hide="editOn">
+                    {{patient.name | limitTo: 20}}{{patient.name.length > 20 ? '...' : ''}}
+                    <img src="assets/icons/icon-pen.svg" ng-click="editOn = true" style="margin-top: 3px"
+                         alt="" class="pull-right pointer" ng-show="showEdit">
+                </span>
+            </td>
+            <!-- Editing end -->
+            <td>{{patient.bmi}}</td>
+            <td>{{patient.heightCm}}</td>
+            <td>{{patient.weightKg}}</td>
+            <td>{{patient._id}}</td>
+            <td uib-dropdown>
+                {{patient.createdAt | date : 'MM/dd/yyyy'}}
+                <span class="pointer pull-right btn-dots" uib-dropdown-toggle><img src="assets/icons/icon-dots.svg"
+                                                                                   alt=""></span>
+                <ul class="dropdown-menu dropdown-grid" uib-dropdown-menu>
+                    <li><a ng-click="vm.viewPatient(patient)">
+                        <img src="assets/icons/icon-pen.svg" alt=""> View Patient Details
+                    </a></li>
+                    <li><a ng-click="vm.deletePatient(patient)">
+                        <img src="assets/icons/icon-remove-black.svg" alt=""> Delete Patient
+                    </a></li>
+                </ul>
+            </td>
+        </tr>
+        <tr ng-if="!vm.patients">
+            <td colspan="6" class="text-center" style="padding-top:130px">
+                <i class="fa fa-cog fa-spin fa-3x fa-fw"></i>
+                <span class="sr-only">Loading...</span>
+            </td>
+        </tr>
+        <tr ng-if="vm.patients && vm.patients.length === 0">
+            <td colspan="6" class="text-center" style="padding-top:130px">
+                <b>No patients yet</b>
+            </td>
+        </tr>
+    </table>
+    <!--End-->
+    <section class="paging" ng-if="vm.patients && vm.patients.length > 0">
+        <ul uib-pagination total-items="vm.pageLen" ng-model="vm.pageNum" max-size="vm.pplPerPage" force-ellipses="true"
+            direction-links="false" class="pagination-sm" boundary-links="true"></ul>
+        <span class="pull-right" style="margin-top: 5px">
+            {{vm.pplPerPage * (vm.pageNum - 1) + 1}} - {{(vm.pplPerPage * vm.pageNum) < vm.pageLen ? vm.pplPerPage * vm.pageNum : vm.pageLen}} of {{vm.pageLen}} items
+        </span>
+    </section>
+</section>

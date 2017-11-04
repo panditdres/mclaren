@@ -1,0 +1,219 @@
+[
+  	{
+	  	"patientId": 1,
+	    "activity": "sleeping",
+	    "minutes": 540
+  	},
+  	{
+	  	"patientId": 1,
+	    "activity": "walking",
+	    "minutes": 75
+  	},
+  	{
+	  	"patientId": 1,
+	    "activity": "stationary-awake",
+	    "minutes": 765
+  	},
+  	{
+	  	"patientId": 1,
+	    "activity": "swimming",
+	    "minutes": 60
+  	},
+	 {
+	  	"patientId": 2,
+	    "activity": "sleeping",
+	    "minutes": 450
+  	},
+  	{
+	  	"patientId": 2,
+	    "activity": "walking",
+	    "minutes": 20
+  	},
+  	{
+	  	"patientId": 2,
+	    "activity": "stationary-awake",
+	    "minutes": 970
+  	},
+  	{
+	  	"patientId": 3,
+	    "activity": "sleeping",
+	    "minutes": 585
+  	},
+  	{
+	  	"patientId": 3,
+	    "activity": "stationary-awake",
+	    "minutes": 755
+  	},
+  	{
+	  	"patientId": 3,
+	    "activity": "running",
+	    "minutes": 30
+  	},
+  	{
+	  	"patientId": 3,
+	    "activity": "cycling",
+	    "minutes": 75
+  	},
+  	{
+	  	"patientId": 4,
+	    "activity": "sleeping",
+	    "minutes": 720
+  	},
+  	{
+	  	"patientId": 4,
+	    "activity": "stationary-awake",
+	    "minutes": 710
+  	},
+  	{
+	  	"patientId": 4,
+	    "activity": "walking",
+	    "minutes": 10
+  	},
+  	{
+	  	"patientId": 5,
+	    "activity": "sleeping",
+	    "minutes": 570
+  	},
+  	{
+	  	"patientId": 5,
+	    "activity": "walking",
+	    "minutes": 145
+  	},
+  	{
+	  	"patientId": 5,
+	    "activity": "stationary-awake",
+	    "minutes": 725
+	},
+	{
+	  	"patientId": 6,
+	    "activity": "sleeping",
+	    "minutes": 480
+	},
+	{
+	  	"patientId": 6,
+	    "activity": "walking",
+	    "minutes": 30
+  	},
+  	{
+	  	"patientId": 6,
+	    "activity": "stationary-awake",
+	    "minutes": 900
+  	},
+  	{
+	  	"patientId": 6,
+	    "activity": "cycling",
+	    "minutes": 30
+  	},
+	{	
+		"patientId": 7,
+    	"activity": "sleeping",
+    	"minutes": 540
+  	},
+  	{	
+  		"patientId": 7,
+	    "activity": "walking",
+	    "minutes": 180
+  	},
+  	{	
+  		"patientId": 7,
+	    "activity": "stationary-awake",
+	    "minutes": 720
+  	},
+  	{
+  		"patientId": 8,
+	    "activity": "sleeping",
+	    "minutes": 1000
+	},
+	{
+		"patientId": 8,
+	    "activity": "stationary-awake",
+	    "minutes": 440
+	},
+	{
+		"patientId": 9,
+	    "activity": "sleeping",
+	    "minutes": 540
+  	},
+  	{
+  		"patientId": 9,
+	    "activity": "walking",
+	    "minutes": 60
+  	},
+  	{
+  		"patientId": 9,
+	    "activity": "stationary-awake",
+	    "minutes": 770
+    },
+  	{  
+  		"patientId": 9,
+	    "activity": "running",
+	    "minutes": 45
+    },
+    {
+    	"patientId": 9,
+	    "activity": "swimming",
+	    "minutes": 45
+    },
+    {
+    	"patientId": 10,
+	    "activity": "sleeping",
+	    "minutes": 540
+  	},
+  	{
+	  	"patientId": 10,
+	    "activity": "walking",
+	    "minutes": 120
+  	},
+	{
+	  	"patientId": 10,
+	    "activity": "stationary-awake",
+	    "minutes": 780
+  	},
+  	{
+	  	"patientId": 11,
+	    "activity": "sleeping",
+	    "minutes": 600
+  	},
+  	{
+	  	"patientId": 11,
+	    "activity": "walking",
+	    "minutes": 30
+  	},
+  	{
+	  	"patientId": 11,
+	    "activity": "stationary-awake",
+	    "minutes": 630
+  	},
+  	{
+	  	"patientId": 11,
+	    "activity": "swimming",
+	    "minutes": 60
+  	},
+  	{
+	  	"patientId": 11,
+	    "activity": "running",
+	    "minutes": 60
+  	},
+  	{
+	  	"patientId": 11,
+	    "activity": "cycling",
+	    "minutes": 60
+  	},
+	{
+	  	"patientId": 12,
+	    "activity": "sleeping",
+	    "minutes": 420
+  	},
+  	{
+	  	"patientId": 12,
+	    "activity": "walking",
+	    "minutes": 120
+  	},
+  	{
+	  	"patientId": 12,
+	    "activity": "stationary-awake",
+	    "minutes": 900
+  	}
+]
+
+
