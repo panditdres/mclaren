@@ -8,7 +8,7 @@ McLaren Applied Technology Exercise
 
 ## Build
 
-*V1*
+*V1.0*
 
 ## BackEnd Structure
 
@@ -45,3 +45,13 @@ McLaren Applied Technology Exercise
 3: second test will see if adding new definitions works correctly
 
 ```
+
+## POSTMAN Endpoints
+
+- Link will be sent to have access to the POSTMAN collection
+- Collection will include end points to the basic backend functionality
+- `/api/v1/allPatients` - GET request to get list of patients
+- `/api/v1/allDefinitions` - GET request to get list of definitions
+- `/api/v1/addPatients` - POST request to add more patients (JSON included in the body)
+- `/api/v1/addDefinition` - POST request to add more defitions for activities (JSON included in the body)
+- `/api/v1/addSummaries` - POST request to add activity summary for patients (JSON included in the body)
