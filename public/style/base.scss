@@ -11,6 +11,16 @@ input {
   outline: none;
 }
 
+input[type="file"] {
+    display: none;
+}
+
+#title {
+  color: white;
+  font-size: 20px;
+  font-family: "Helvetica Neue", "SansSerif";
+}
+
 .row {
   margin: inherit;
 }
@@ -124,8 +134,7 @@ label {
   z-index: 1;
   .nav-colored {
     background-color: transparent;
-    padding-top: 20px;
-    padding-left: 20px;
+    padding-top: 15px;
     display: inline-block;
   }
   .menu-toggle {
@@ -146,11 +155,11 @@ label {
 }
 
 /*//////////*/
-.dash-practice-search {
+.dash-search {
   background-color: #fafafa;
   padding: 15px 40px 15px 0px;
   input {
-    padding-top:10px;
+    // padding-top:10px;
     font-family: HelveticaNeue-Medium;
     background-color: #fafafa;
     font-size: 16px;

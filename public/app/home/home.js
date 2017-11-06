@@ -15,14 +15,14 @@
                         allPatients : function(DataService){
                             return DataService.getAllPatients()
                             .then(res => {
-                                console.log(res.data)
+                                // console.log(res.data)
                                 return res.data
                             })
                         }, 
                         allDefinitions : function(DataService){
                             return DataService.getAllDefinitions()
                             .then(res => {
-                                console.log(res.data)
+                                // console.log(res.data)
                                 return res.data
                             })
                         }
@@ -34,14 +34,11 @@
 
             let vm = this;
 
-            vm.selectingCover = true;
-
             init();
 
             function init(){
                 vm.patients     = allPatients;
                 vm.definitions  = allDefinitions;
-                console.log(allDefinitions)
             }
             
 

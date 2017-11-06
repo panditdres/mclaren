@@ -29,7 +29,6 @@
             // Function declaration
             vm.pagePatients = pagePatients;
             vm.viewPatient  = viewPatient;
-            // vm.uploadPatients = uploadPatients;
 
             vm.gridColumns = [
                 {display: 'Name', search: 'name', sort: 'name', rotate: 'name'},
@@ -59,7 +58,7 @@
                     }).map(x => { return x.minutes }).reduce((a,b) => a+b, 0);
 
                     patient.vigorousTotal  = patient.summary.filter(el => {
-                        console.log(el)
+                        // console.log(el)
                         return vigorousAct.includes(el.activity.toLowerCase())
                     }).map(x => { return x.minutes }).reduce((a,b) => a+b, 0);
 
@@ -108,7 +107,7 @@
             }
 
             function viewPatient(patient){
-                console.log('view patient',patient)
+                // console.log('view patient',patient)
                 const obj = {
                     patient     : patient,
                     definitions : vm.definitions
@@ -128,4 +127,18 @@
             
 
         })
+        .directive('customOnChange', function() {
+            return {
+                restrict: 'A',
+                link: function (scope, element, attrs) {
+                    var onChangeHandler = scope.$eval(attrs.customOnChange);
+                    element.bind('change', onChangeHandler);
+                    element.on('$destroy', function() {
+                        element.unbind('change');
+                    });
+
+                }
+            };
+        });
+
 }());
