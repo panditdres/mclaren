@@ -18,6 +18,7 @@
             let vm = this;
 
             // Variables declaration
+            // Default sorting for the table is name
             vm.search       = '';
             vm.sortCol      = 'name';
             vm.checkboxAll  = false;

@@ -33,6 +33,18 @@ McLaren Applied Technology Exercise
 - Any assets/icons/images ar ein the `assets` folder
 - `dist` folder includes the minified code for both .js and .css
 
+## Grid + Modal Functionalities
+
+- The grid is sorted by name as default
+- Each column can be sorted by pressing on the arrows - Alphabetically or numerically
+- Each column can be search in the input field
+- Global search in the input field with placeholder `Search Patient` - global search can search by height/weight/name/category/bmi
+- Pagination implemented - showing 10 patients/page at a time
+- Clicking on a row will prompt a modal that show each patient's details and their activity history
+- Modal also will include a breakdown of what activities they've done and for how long as well as which category they fall under
+- Hovering over each section of the doughnut grab will show the activity as well as the amount of minutes the chose patient has done
+- Closing the modal can be done by clicking the X on the top right or clicking outside of the modal
+
 ## BackEnd Structure
 
 - Source code for the backend is located in the `server` folder
