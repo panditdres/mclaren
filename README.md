@@ -81,4 +81,4 @@ McLaren Applied Technology Exercise
 
 ## Notes
 
-- summary.json included in the repo, made changes and combined all the summaries given in the instruction and created 1 file for summary of all the patients' activities
+- `summary.json` included in the repo, made changes and combined all the summaries given in the instruction and created 1 file for summary of all the patients' activities
