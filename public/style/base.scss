@@ -111,6 +111,15 @@ label {
   }
 }
 
+.modal-lg {
+  width: 85%;
+}
+@media only screen and (max-width: 765px) {
+  .modal-lg {
+    width: auto;
+  }
+}
+
 .border-btm {
   background: #F0F0F0;
   width: 100%;

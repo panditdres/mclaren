@@ -26,12 +26,16 @@
             vm.sortReverse  = false;
             vm.pplPerPage   = 10;
 
-            // Function declaration
-            vm.pagePatients = pagePatients;
-            vm.viewPatient  = viewPatient;
-
-            // Declaring the columns on the table/grid
-            vm.gridColumns = [
+            // Declaring the columns on the table/grid depending on screen size on load
+            vm.gridColumns  = screen.availWidth < 500 ? 
+            [
+                {display: 'Name', search: 'name', sort: 'name', rotate: 'name'},
+                {display: 'BMI', search: 'bmi', sort: 'bmi', rotate: 'bmi'},
+                {display: 'Height (cm)', search: 'heightCm', sort: 'heightCm', rotate: 'heightCm'},
+                {display: 'Weight (kg)', search: 'weightKg', sort: 'weightKg', rotate: 'weightKg'},
+                {display: 'Category', search: 'resultText', sort: 'resultText', rotate: 'resultText'},
+                // {display: 'Created', search: 'Created', sort: 'Created', rotate: 'Created'}
+            ] : [
                 {display: 'Name', search: 'name', sort: 'name', rotate: 'name'},
                 {display: 'BMI', search: 'bmi', sort: 'bmi', rotate: 'bmi'},
                 {display: 'Height (cm)', search: 'heightCm', sort: 'heightCm', rotate: 'heightCm'},
@@ -40,9 +44,44 @@
                 {display: 'Created', search: 'Created', sort: 'Created', rotate: 'Created'}
             ];
 
+            vm.showCreate   = screen.availWidth < 500 ? false : true;
+
+            // Function declaration
+            vm.pagePatients = pagePatients;
+            vm.viewPatient  = viewPatient;
+
             init();
 
             ///////////////////////////////////////////////////////////////////////////////////
+
+            // Adjust columns on table depending on the size of the screen when it is resized
+            // Real time adjustment
+            $(window).resize(function(){
+                console.log(window.innerWidth);
+
+                $scope.$apply(function(){
+                   //do something to update current scope based on the new innerWidth and let angular update the view.
+                    vm.gridColumns  = window.innerWidth < 500 ? 
+                    [
+                        {display: 'Name', search: 'name', sort: 'name', rotate: 'name'},
+                        {display: 'BMI', search: 'bmi', sort: 'bmi', rotate: 'bmi'},
+                        {display: 'Height (cm)', search: 'heightCm', sort: 'heightCm', rotate: 'heightCm'},
+                        {display: 'Weight (kg)', search: 'weightKg', sort: 'weightKg', rotate: 'weightKg'},
+                        {display: 'Category', search: 'resultText', sort: 'resultText', rotate: 'resultText'},
+                        // {display: 'Created', search: 'Created', sort: 'Created', rotate: 'Created'}
+                    ] : [
+                        {display: 'Name', search: 'name', sort: 'name', rotate: 'name'},
+                        {display: 'BMI', search: 'bmi', sort: 'bmi', rotate: 'bmi'},
+                        {display: 'Height (cm)', search: 'heightCm', sort: 'heightCm', rotate: 'heightCm'},
+                        {display: 'Weight (kg)', search: 'weightKg', sort: 'weightKg', rotate: 'weightKg'},
+                        {display: 'Category', search: 'resultText', sort: 'resultText', rotate: 'resultText'},
+                        {display: 'Created', search: 'Created', sort: 'Created', rotate: 'Created'}
+                    ];
+
+                    vm.showCreate   = window.innerWidth < 500 ? false : true;
+
+                });
+            });
 
 
             function init(){

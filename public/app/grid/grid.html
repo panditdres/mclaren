@@ -40,7 +40,7 @@
             <td>{{patient.heightCm}}</td>
             <td>{{patient.weightKg}}</td>
             <td>{{patient.resultText}}</td>
-            <td>{{patient.createdAt | date : 'MM/dd/yyyy'}}<td>
+            <td ng-if="vm.showCreate">{{patient.createdAt | date : 'MM/dd/yyyy'}}<td>
         </tr>
         <tr ng-if="!vm.patients">
             <td colspan="6" class="text-center" style="padding-top:130px">
