@@ -5,15 +5,11 @@ const config   		= require('../../config/config');
 const moment   		= require('moment');
 const fs       		= require('fs');
 const http     		= require('http');
-// const PdfPrinter 	= require('pdfmake/src/printer');
-// const excel         = require('node-excel-export');
 const Summary 		= require('../models/summary');
 const Patient		= require('../models/patient');
 
 module.exports = {
-
 	addSummaries : addSummaries
-
 }
 
 function addSummaries(details,callback){
@@ -43,9 +39,15 @@ function addSummaries(details,callback){
 		})
 	})
 	.then(patients => {
-		return bluebird.map(patients, patient => {
-			patient.summary = savedSum.filter(el => {return el.patientId === patient.mclarenId}).map(x => {return x._id})
-			return patient.save()
+
+		let unique = patients.filter((obj, pos, arr) => {
+            return arr.map(mapObj => mapObj._id).indexOf(obj._id) === pos;
+        });
+
+		return bluebird.map(unique, patient => {
+			// console.log(patient,'PATIENT')
+			patient[0].summary = savedSum.filter(el => {return el.patientId === patient[0].mclarenId}).map(x => {return x._id})
+			return patient[0].save();
 		})
 	})
 	.then(final => {
