@@ -10,6 +10,10 @@ McLaren Applied Technology Exercise
 
 *V1.0*
 
+## Link
+
+*https://mclaren-applied-tech.herokuapp.com/*
+
 ## BackEnd Structure
 
 - Source code for the backend is located in the `server` folder
@@ -26,18 +30,12 @@ McLaren Applied Technology Exercise
 3: run 'npm run dev' - this will compress the code into bundle.js in the dist folder and keep the console logs
 4: server located on localhost:9000
 
-```
-
-```
 ---- How to start 'er up in production mode on Localhost ------
 
 1: run 'npm build' - this will compress the code into bundle.js in the dist folder but get rid of the console logs
 2: run 'npm start' - this will start the server
 3: server located on localhost:9000
 
-```
-
-```
 ---- How to run the tests (Mocha) ------
 
 1: run 'npm test' - this will start the scripts to run the test
@@ -55,3 +53,7 @@ McLaren Applied Technology Exercise
 - `/api/v1/addPatients` - POST request to add more patients (JSON included in the body)
 - `/api/v1/addDefinition` - POST request to add more defitions for activities (JSON included in the body)
 - `/api/v1/addSummaries` - POST request to add activity summary for patients (JSON included in the body)
+
+## Database Access
+
+- 
