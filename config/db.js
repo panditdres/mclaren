@@ -1,11 +1,7 @@
-/**
- * Created by ivan on 16-04-06.
- */
 var config = require('./config');
 var mongoose = require('mongoose');
 
 // create the database connection
-console.log(config)
 mongoose.connect(config.stageDB, {useMongoClient: true});
 
 // when the connection starts

@@ -5,8 +5,6 @@ const config   		= require('../../config/config');
 const moment   		= require('moment');
 const fs       		= require('fs');
 const http     		= require('http');
-// const PdfPrinter 	= require('pdfmake/src/printer');
-// const excel         = require('node-excel-export');
 const Patient 		= require('../models/patient');
 
 module.exports = {
@@ -27,27 +25,30 @@ function getAllPatients(callback) {
 }
 
 function addPatients(details,callback){
-	console.log(details)
+	// console.log(details)
 
 	let patients = details;
 
 	bluebird.map(patients, (patient) => {
+
 		let query = {
 			mclarenId 	: patient.id,
 			name		: patient.name,
 			gender		: patient.gender,
-			birthdate	: patient.birthdate,
+			birthDate	: patient.birthDate,
 			heightCm	: patient.heightCm,
 			weightKg	: patient.weightKg,
 			bmi			: patient.bmi
 		}
+
+		console.log(query,'query')		
 
 		let newPatient = new Patient(query)
 
 		return newPatient.save()
 	})
 	.then(savedPatients => {
-		console.log(savedPatients)
+		// console.log(savedPatients)
 		return callback({error: false, msg: 'Array of patients saved'})
 	})
 	.catch(err => {

@@ -1,12 +1,10 @@
 'use strict';
 
 const bluebird    	= require('bluebird');
-const config   		= require('../../config/config');
+// const config   		= require('../../config/config');
 const moment   		= require('moment');
 const fs       		= require('fs');
 const http     		= require('http');
-// const PdfPrinter 	= require('pdfmake/src/printer');
-// const excel         = require('node-excel-export');
 const Definition 	= require('../models/definition');
 
 module.exports = {
@@ -41,11 +39,11 @@ function addDefinitions(details, callback){
 		return newDef.save()
 	})
 	.then(savedDef => {
-		console.log(savedDef);
-		callback({error : false, msg : 'Add definitions saved for activities'})
+		// console.log(savedDef);
+		return callback({error : false, msg : 'Add definitions saved for activities'})
 	})
 	.catch(err => {
 		console.log(err);
-		callback({error : true, err : err});
+		return callback({error : true, err : err});
 	})
 }

@@ -16,15 +16,15 @@ module.exports = {
 
 }
 
-
 function addSummaries(details,callback){
 
-	console.log(details)
+	// console.log(details)
 
 	let savedSum;
 	let summaries = details;
 
 	bluebird.map(summaries, el => {
+		
 		let query = {
 			patientId 	: el.patientId,
 			activity	: el.activity,
@@ -36,7 +36,7 @@ function addSummaries(details,callback){
 		return newSummary.save()
 	})
 	.then(results => {
-		console.log(results);
+		// console.log(results);
 		savedSum = results;
 		return Patient.find({})
 	})
@@ -47,10 +47,11 @@ function addSummaries(details,callback){
 		})
 	})
 	.then(final => {
-		console.log(final)
+		// console.log(final)
+		return callback({error : false, msg : 'Summaries imported'})
 	})
 	.catch(err => {
-		callback({error:true, err: err})
+		return callback({error:true, err: err})
 	})
 
 }

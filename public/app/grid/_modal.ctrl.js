@@ -33,8 +33,10 @@ angular.module("McLarenApp")
                 vm.resultText = 'Patient falls under the category of 150 minutes of moderate activity';
             } else if (vm.vigorousTotal >= 75 && vm.moderateTotal === 0){
                 vm.resultText = 'Patient falls under the category of 75 minutes of vigorous activity';
-            } else {
+            } else if (vm.vigorousTotal != 0 && vm.moderateTotal != 0) {
                 vm.resultText = 'Patient falls under the category of a mix of moderate and vigorous activity';
+            } else {
+                vm.resultText = 'Patient lacks activity';
             }
 
         }

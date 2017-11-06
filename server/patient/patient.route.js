@@ -12,7 +12,7 @@ function Patient_Routes(router) {
 	router.get('/allPatients',(req,res) => {
 
 		PatientHelper.getAllPatients(response => {
-			console.log(response)
+			// console.log(response)
 			if(response.error === false){
 				res.status(200).send(response)
 			} else {
@@ -29,7 +29,7 @@ function Patient_Routes(router) {
 		let details = req.body;
 
 		PatientHelper.addPatients(details, response => {
-			console.log(response)
+			// console.log(response)
 			if(response.error === false){
 				res.status(200).send(response)
 			} else {

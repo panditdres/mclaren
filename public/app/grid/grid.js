@@ -54,7 +54,7 @@
 
                 vm.patients.forEach(patient => {
                     patient.moderateTotal = patient.summary.filter(el => {
-                        console.log(el)
+                        // console.log(el)
                         return moderateAct.includes(el.activity.toLowerCase())
                     }).map(x => { return x.minutes }).reduce((a,b) => a+b, 0);
 

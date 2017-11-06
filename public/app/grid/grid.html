@@ -48,19 +48,7 @@
             <td>{{patient.heightCm}}</td>
             <td>{{patient.weightKg}}</td>
             <td>{{patient.resultText}}</td>
-            <td uib-dropdown>
-                {{patient.createdAt | date : 'MM/dd/yyyy'}}
-                <!-- <span class="pointer pull-right btn-dots" uib-dropdown-toggle><img src="assets/icons/icon-dots.svg"
-                                                                                   alt=""></span>
-                <ul class="dropdown-menu dropdown-grid" uib-dropdown-menu>
-                    <li><a ng-click="vm.viewPatient(patient)">
-                        <img src="assets/icons/icon-pen.svg" alt=""> View Patient Details
-                    </a></li>
-                    <li><a ng-click="vm.deletePatient(patient)">
-                        <img src="assets/icons/icon-remove-black.svg" alt=""> Delete Patient
-                    </a></li>
-                </ul> -->
-            </td>
+            <td>{{patient.createdAt | date : 'MM/dd/yyyy'}}<td>
         </tr>
         <tr ng-if="!vm.patients">
             <td colspan="6" class="text-center" style="padding-top:130px">
