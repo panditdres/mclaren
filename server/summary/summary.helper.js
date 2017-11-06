@@ -19,6 +19,7 @@ function addSummaries(details,callback){
 	let savedSum;
 	let summaries = details;
 
+	// Expecting details to be an array - bluebird.map allows us to run the function asynchronously 		
 	bluebird.map(summaries, el => {
 		
 		let query = {
@@ -40,12 +41,14 @@ function addSummaries(details,callback){
 	})
 	.then(patients => {
 
+		// unique array only takes unique patients, meaning Patient A will not show up twice in the array
+		// Causes bug on .save() on mongoose
 		let unique = patients.filter((obj, pos, arr) => {
             return arr.map(mapObj => mapObj._id).indexOf(obj._id) === pos;
         });
 
 		return bluebird.map(unique, patient => {
-			// console.log(patient,'PATIENT')
+			// sets a new array of summary for the patient
 			patient[0].summary = savedSum.filter(el => {return el.patientId === patient[0].mclarenId}).map(x => {return x._id})
 			return patient[0].save();
 		})

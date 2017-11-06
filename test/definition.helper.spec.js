@@ -10,10 +10,11 @@ const database 			= config.stageDB;
 //import add definitions
 //addDefinitions
 describe(`addDefinitions`, function() {
-	it(`should save the details arg in the database`, cb => {
+	it(`should save the details arg in the database for definitions inserted`, cb => {
 
 		mongoose.connect(config.stageDB, {useMongoClient: true});
 
+		// Adding 2 new definitions to the database for this test
 		const details = [{
 			activity 	: 'Football Practice',
 			intensity 	: 'vigorous'
@@ -33,8 +34,11 @@ describe(`addDefinitions`, function() {
 					return { activity : el[0].activity, intensity : el[0].intensity }
 				})
 
+				// Checking if what we get back from the DB is the same as what we inserted.
 				expect(check).to.deep.equal(details);
+				// Close mongoose connection
 				mongoose.disconnect();
+				// return callback since aync function
 				return cb();
 
 			})

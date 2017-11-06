@@ -1,15 +1,12 @@
-/**
- * Created by ivan on 2016-12-10.
- */
 'use strict';
-var gulp = require('gulp'),
-    cssmin = require('gulp-cssmin'),
-    concat = require('gulp-concat'),
-    uglify = require('gulp-uglify'),
-    pump = require('pump'),
-    sass = require('gulp-sass'),
-    babel = require('gulp-babel'),
-    ngAnnotate = require('gulp-ng-annotate');
+var gulp        = require('gulp'),
+    cssmin      = require('gulp-cssmin'),
+    concat      = require('gulp-concat'),
+    uglify      = require('gulp-uglify'),
+    pump        = require('pump'),
+    sass        = require('gulp-sass'),
+    babel       = require('gulp-babel'),
+    ngAnnotate  = require('gulp-ng-annotate');
 
 var sassFiles   = './public/style/**/*.scss';
 var jsFiles     =  [

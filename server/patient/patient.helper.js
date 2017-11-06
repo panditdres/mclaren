@@ -8,10 +8,8 @@ const http     		= require('http');
 const Patient 		= require('../models/patient');
 
 module.exports = {
-
 	getAllPatients 	: getAllPatients,
 	addPatients 	: addPatients
-
 }
 
 function getAllPatients(callback) {
@@ -29,6 +27,7 @@ function addPatients(details,callback){
 
 	let patients = details;
 
+	// Expecting details to be an array - bluebird.map allows us to run the function asynchronously 
 	bluebird.map(patients, (patient) => {
 
 		let query = {
@@ -41,7 +40,7 @@ function addPatients(details,callback){
 			bmi			: patient.bmi
 		}
 
-		console.log(query,'query')		
+		// console.log(query,'query')		
 
 		let newPatient = new Patient(query)
 

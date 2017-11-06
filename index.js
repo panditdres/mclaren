@@ -1,6 +1,3 @@
-/**
- * Created by pandit on 02-11-2017.
- */
 const express 		= require('express');
 const app 			= express();
 const bodyParser 	= require('body-parser');
@@ -18,7 +15,6 @@ const router 		= express.Router();
 // =======================
 
 // Routes
-// const authentication = require('./server/auth/auth.middleware')
 const patients_route	= require('./server/patient/patient.route');
 const definitions_route = require('./server/definition/definition.route');
 const summaries_route 	= require('./server/summary/summary.route');

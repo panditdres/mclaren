@@ -28,6 +28,7 @@ function addDefinitions(details, callback){
 
 	let def = details;
 
+	// Expecting details to be an array - bluebird.map allows us to run the function asynchronously 
 	bluebird.map(def, el =>{
 		let query = {
 			activity 	: el.activity,
@@ -40,9 +41,11 @@ function addDefinitions(details, callback){
 	})
 	.then(savedDef => {
 		// console.log(savedDef);
+		// callback set error to false
 		return callback({error : false, msg : 'Add definitions saved for activities'})
 	})
 	.catch(err => {
+		// catching error
 		console.log(err);
 		return callback({error : true, err : err});
 	})

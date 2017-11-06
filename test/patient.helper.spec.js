@@ -8,13 +8,12 @@ const db 				= require('../config/db');
 const mongoose			= require('mongoose');
 const database 			= config.stageDB;
 
-//import add definitions
-//addDefinitions
 describe(`addPatients`, function() {
-	it(`should save the details arg in the database`, cb => {
+	it(`should save the details arg in the database for patient added`, cb => {
 
 		mongoose.connect(config.stageDB, {useMongoClient: true});
 
+		// For the test, we are adding 2 additional patients onto the database
 		const details = [{
 		    "id": 13,
 		    "name": "Daniel Ricciardo",
@@ -57,9 +56,11 @@ describe(`addPatients`, function() {
 						birthDate 	: moment.utc(el[0].birthDate).format('YYYY-MM-DD')
 					}
 				})
-	
+				// Checking if what we get back from the DB is the same as what we inserted.
 				expect(check).to.deep.equal(details);
-				mongoose.disconnect()
+				// Close mongoose connection
+				mongoose.disconnect();
+				// return callback since aync function
 				return cb()
 			})
 			.catch(cb)

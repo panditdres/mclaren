@@ -7,6 +7,7 @@ mongoose.connect(config.stageDB, {useMongoClient: true});
 // when the connection starts
 mongoose.connection.on('connected', function () {
     console.log('Connection open to ' + config.stageDB);
+    console.log('Server is running')
 });
 
 // log error if error occurs
