@@ -38,7 +38,9 @@ function addSummaries(details,callback){
 	.then(results => {
 		// console.log(results);
 		savedSum = results;
-		return Patient.find({})
+		return bluebird.map(summaries, el => {
+			return Patient.find({mclarenId : el.patientId})
+		})
 	})
 	.then(patients => {
 		return bluebird.map(patients, patient => {
