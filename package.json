@@ -45,7 +45,7 @@
     "test": "mocha ./test/**/*.js",
     "dev": "gulp dev & node index.js",
     "build": "gulp",
-    "start": "npm run build && node index.js"
+    "start": "node index.js"
   },
   "author": "Pandit Adhilaga-Dres",
   "license": "ISC"
