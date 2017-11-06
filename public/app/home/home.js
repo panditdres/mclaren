@@ -33,6 +33,7 @@
 
             init();
 
+            // initialization - home is the parent and we can use allPatients and allDefinitions to pass to the children
             function init(){
                 vm.patients     = allPatients;
                 vm.definitions  = allDefinitions;

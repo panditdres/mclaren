@@ -17,6 +17,7 @@
 
             let vm = this;
 
+            // Variables declaration
             vm.search       = '';
             vm.sortCol      = 'name';
             vm.checkboxAll  = false;
@@ -28,6 +29,7 @@
             vm.pagePatients = pagePatients;
             vm.viewPatient  = viewPatient;
 
+            // Declaring the columns on the table/grid
             vm.gridColumns = [
                 {display: 'Name', search: 'name', sort: 'name', rotate: 'name'},
                 {display: 'BMI', search: 'bmi', sort: 'bmi', rotate: 'bmi'},
@@ -43,23 +45,28 @@
 
 
             function init(){
+
+                // Retrieve data from DataService
                 vm.patients     = DataService.patients();
                 vm.definitions  = DataService.definitions();
 
+                // Filtering to have all the vigorous and moderate activities
                 let vigorousAct = vm.definitions.filter(el => { return el.intensity === 'vigorous' }).map(x => { return x.activity });
                 let moderateAct = vm.definitions.filter(el => { return el.intensity === 'moderate' }).map(x => { return x.activity });
 
                 vm.patients.forEach(patient => {
+
+                    // For each patient, we want to know the total amount of minutes they have done for moderate activities
                     patient.moderateTotal = patient.summary.filter(el => {
-                        // console.log(el)
                         return moderateAct.includes(el.activity.toLowerCase())
                     }).map(x => { return x.minutes }).reduce((a,b) => a+b, 0);
 
+                    // For each patient, we want to know the total amount of minutes they have done for vigorous activities
                     patient.vigorousTotal  = patient.summary.filter(el => {
-                        // console.log(el)
                         return vigorousAct.includes(el.activity.toLowerCase())
                     }).map(x => { return x.minutes }).reduce((a,b) => a+b, 0);
 
+                    // Mapping to determine which category each patients fall under
                     if(patient.moderateTotal >= 150 && patient.vigorousTotal === 0){
                         patient.resultText = '150 minutes of moderate activity';
                     } else if (patient.vigorousTotal >= 75 && patient.moderateTotal === 0){
@@ -73,7 +80,8 @@
 
             }
 
-            function pagePatients() { // <-- filter users for a page
+            // function displays the pagination to get patients per page
+            function pagePatients() { // <-- filter patients for a page
                 if (vm.patients) {
                     let filt = $filter('filter')(doSorting(vm.patients), vm.search);
                     let paged = filt.filter((el, i) => (i >= vm.pplPerPage * (vm.pageNum - 1)) && (i < vm.pageNum * vm.pplPerPage));
@@ -85,7 +93,6 @@
             function doSorting(list) {
                 // temporary array holds objects with position and sort-value
                 let mapped = list.map(function (el, i) {
-                    // console.log(el)
                     return {index: i, value: el[vm.sortCol]};
                 });
                 // sorting the mapped array containing the reduced values
@@ -104,8 +111,8 @@
                 });
             }
 
+            // Opens the modal to view each patient's activity history
             function viewPatient(patient){
-                // console.log('view patient',patient)
                 const obj = {
                     patient     : patient,
                     definitions : vm.definitions
@@ -121,22 +128,6 @@
                     console.log('Modal dismissed')
                 })
             };
-            
-            
-
+              
         })
-        .directive('customOnChange', function() {
-            return {
-                restrict: 'A',
-                link: function (scope, element, attrs) {
-                    var onChangeHandler = scope.$eval(attrs.customOnChange);
-                    element.bind('change', onChangeHandler);
-                    element.on('$destroy', function() {
-                        element.unbind('change');
-                    });
-
-                }
-            };
-        });
-
 }());

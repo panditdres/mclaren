@@ -16,8 +16,9 @@
 
         /****________********_______********________****/
 
+
+        // Function to retrieve all patients stored in the database
         function getAllPatients() {
-            // data.sessionId = $localStorage.token;
             return $http.get(apiUrl + 'allPatients')
             .then(resp => {
                 patients = resp.data.data;
@@ -28,8 +29,8 @@
             })
         }
 
+        // Fuction to retrieve all definitions stored in the database
         function getAllDefinitions() {
-            // data.sessionId = $localStorage.token;
             return $http.get(apiUrl + 'allDefinitions')
             .then(resp => {
                 definitions = resp.data.data;
