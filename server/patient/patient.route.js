@@ -1,6 +1,3 @@
-/**
- * Created by pandit on 02-11-2017.
- */
 'use strict';
 
 const PatientHelper  = require('./patient.helper');

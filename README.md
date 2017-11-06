@@ -20,6 +20,7 @@ McLaren Applied Technology Exercise
 - Routes are declared in the `index.js` file inside the root folder
 - Folders are arranged by their functionality - helpers and routes are therefore in the same folder
 - MongoDB Database Implementation is used to store the patient data
+- Models are stored in the `models` server inside the `server` folder
 - `.env` file included
 
 ```
@@ -56,4 +57,4 @@ McLaren Applied Technology Exercise
 
 ## Database Access
 
-- 
+- Credentials for the database access will be provided 

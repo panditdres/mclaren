@@ -1,6 +1,3 @@
-/**
- * Created by Pandit on 02-11-2017
- */
 (function () {
     "use strict";
     angular.module("McLarenApp")

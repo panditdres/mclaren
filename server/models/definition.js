@@ -1,6 +1,3 @@
-/**
- * Created by Pandit on 02-11-2017;
- */
 'use strict';
 
 var mongoose = require('mongoose');

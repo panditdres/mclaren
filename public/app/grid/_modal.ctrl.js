@@ -1,7 +1,3 @@
-/**
- * Created by Pandit on 02-11-2017
- */
-
 "use strict";
 angular.module("McLarenApp")
 /* Add User Modal */
